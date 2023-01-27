@@ -51,7 +51,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.exp))
                     user.exp = 0
                 if (!isNumber(user.limit))
-                    user.limit = 1000
+                    user.limit = 10
                 if (!isNumber(user.lastclaim))
                     user.lastclaim = 0
                 if (!isNumber(user.pasangan))
@@ -77,14 +77,14 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.warn))
                     user.warn = 0
                 if (!isNumber(user.level))
-                    user.level = 25
+                    user.level = 0
                 if (!('role' in user))
                     user.role = 'Beginner'
                 if (!('autolevelup' in user))
                     user.autolevelup = true
 
                 if (!isNumber(user.money))
-                    user.money = 10000
+                    user.money = 0
                 if (!isNumber(user.balance))
                     user.balance = 0 
                 if (!isNumber(user.atm))
@@ -339,7 +339,7 @@ export async function handler(chatUpdate) {
             } else
                 global.db.data.users[m.sender] = {
                     exp: 0,
-                    limit: 1000,
+                    limit: 10,
                     lastclaim: 0,
                     registered: false,
                     antispam: 0,
@@ -353,10 +353,10 @@ export async function handler(chatUpdate) {
                     banned: false,
                     acc: false,
                     warn: 0,
-                    level: 25,
+                    level: 0,
                     role: 'Beginner',
                     autolevelup: true,
-                    money: 10000,
+                    money: 0,
                     balance: 0,
                     atm: 0,
                     health: 100,
@@ -506,7 +506,7 @@ export async function handler(chatUpdate) {
                 if (!('delete' in chat))
                     chat.delete = true
                 if (!('antiLink' in chat))
-                    chat.antiLink = false
+                    chat.antiLink = true
                 if (!('antiSticker' in chat)) 
                     chat.antiSticker = false
                 if (!('viewonce' in chat))
@@ -533,7 +533,7 @@ export async function handler(chatUpdate) {
                     sPromote: '',
                     sDemote: '',
                     delete: true,
-                    antiLink: delete,
+                    antiLink: true,
                     antiSticker: false,
                     viewonce: false,
                     antiBadword: true,
