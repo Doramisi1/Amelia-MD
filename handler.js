@@ -51,7 +51,7 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.exp))
                     user.exp = 0
                 if (!isNumber(user.limit))
-                    user.limit = 10
+                    user.limit = 1000
                 if (!isNumber(user.lastclaim))
                     user.lastclaim = 0
                 if (!isNumber(user.pasangan))
@@ -77,14 +77,14 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.warn))
                     user.warn = 0
                 if (!isNumber(user.level))
-                    user.level = 0
+                    user.level = 25
                 if (!('role' in user))
                     user.role = 'Beginner'
                 if (!('autolevelup' in user))
                     user.autolevelup = true
 
                 if (!isNumber(user.money))
-                    user.money = 0
+                    user.money = 10000
                 if (!isNumber(user.balance))
                     user.balance = 0 
                 if (!isNumber(user.atm))
@@ -335,11 +335,11 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.premiumTime))
                     user.premiumTime = 0
                 if (!isNumber(user.limitjoin))
-                    user.limitjoin = 0
+                    user.limitjoin = 100
             } else
                 global.db.data.users[m.sender] = {
                     exp: 0,
-                    limit: 10,
+                    limit: 1000,
                     lastclaim: 0,
                     registered: false,
                     antispam: 0,
@@ -353,10 +353,10 @@ export async function handler(chatUpdate) {
                     banned: false,
                     acc: false,
                     warn: 0,
-                    level: 0,
+                    level: 25,
                     role: 'Beginner',
                     autolevelup: true,
-                    money: 0,
+                    money: 10000,
                     balance: 0,
                     atm: 0,
                     health: 100,
@@ -483,7 +483,7 @@ export async function handler(chatUpdate) {
 					                        
                     premium: false,
                     premiumTime: 0,
-                    limitjoin: 0,
+                    limitjoin: 100,
                 }
             let chat = global.db.data.chats[m.chat]
             if (typeof chat !== 'object')
@@ -494,7 +494,7 @@ export async function handler(chatUpdate) {
                 if (!('welcome' in chat))
                     chat.welcome = true
                 if (!('detect' in chat))
-                    chat.detect = false
+                    chat.detect = true
                 if (!('sWelcome' in chat))
                     chat.sWelcome = ''
                 if (!('sBye' in chat))
@@ -506,7 +506,7 @@ export async function handler(chatUpdate) {
                 if (!('delete' in chat))
                     chat.delete = true
                 if (!('antiLink' in chat))
-                    chat.antiLink = true
+                    chat.antiLink = false
                 if (!('antiSticker' in chat)) 
                     chat.antiSticker = false
                 if (!('viewonce' in chat))
@@ -516,7 +516,7 @@ export async function handler(chatUpdate) {
                 if (!('simi' in chat))
                     chat.simi = false
                 if (!('game' in chat))
-                    chat.game = false 
+                    chat.game = true 
                 if (!('nsfw' in chat))
                     chat.nsfw = false
                 if (!('premnsfw' in chat))
@@ -527,19 +527,19 @@ export async function handler(chatUpdate) {
                 global.db.data.chats[m.chat] = {
                     isBanned: false,
                     welcome: true,
-                    detect: false,
+                    detect: true,
                     sWelcome: '',
                     sBye: '',
                     sPromote: '',
                     sDemote: '',
                     delete: true,
-                    antiLink: true,
+                    antiLink: false,
                     antiSticker: false,
                     viewonce: false,
                     antiBadword: true,
                     simi: false,
                     expired: 0,
-                    game: false,
+                    game: true,
                     nsfw: false,
                     premnsfw: false,
                 }
@@ -547,7 +547,7 @@ export async function handler(chatUpdate) {
             if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
             if (settings) {
                 if (!('self' in settings)) settings.self = false
-                if (!('autoread' in settings)) settings.autoread = true
+                if (!('autoread' in settings)) settings.autoread = false
                 if (!('anticall' in settings)) settings.anticall = true
                 if (!('restrict' in settings)) settings.restrict = true
                 if (!('jadibot' in settings)) settings.jadibot = false
@@ -555,7 +555,7 @@ export async function handler(chatUpdate) {
                 if (!('restartDB' in settings)) settings.restartDB = 0
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
-                autoread: true,
+                autoread: false,
                 anticall: true,
                 jadibot: false,
                 restrict: true,
