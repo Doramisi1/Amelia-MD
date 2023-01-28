@@ -58,6 +58,7 @@
     "fluent-ffmpeg": "^2.1.2",
     "formdata-node": "^4.3.2",
     "genshin": "^1.2.4",
+    "genshin-db": "4.3.5",
     "google-it": "^1.6.2",
     "google-play-scraper": "^9.1.1",
     "human-readable": "^0.2.1",
